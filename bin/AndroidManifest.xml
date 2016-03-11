@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lnpdit.mobilealarm"
+    android:versionCode="34"
+    android:versionName="2.2.1" >
+
+    <uses-sdk
+        android:minSdkVersion="9" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <application
+        android:name="com.lnpdit.mobilealarm.base.application.DemoApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:theme="@style/horizontal_slide" >
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.WelcomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.login.LoginActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="登录页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.register.RegisterActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="注册页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.register.ForgetPwdActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="忘记密码页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.main.MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="首页页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.networkalarm.NetwortAlarmActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="网络报警页面" />
+        </activity>
+         <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.networkalarm.image.ImageGridActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="网络报警图片页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.networkalarm.image.PhotoActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="网络报警图片页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.networkalarm.image.PublishedActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="网络报警图片页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.networkalarm.image.TestPicActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="网络报警图片页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.networkalarm.video.VideoActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="网络报警视频页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.networkalarm.video.VideoSuccessActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="网络报警视频成功页面" />
+        </activity>
+        
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.alarmnote.AlarmListActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="报警历史列表页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.alarmnote.AlarmInformationActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="报警历史详情页面" />
+        </activity>
+         <activity
+            android:name="com.lnpdit.mobilealarm.page.adapter.image.ImagePagerActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="报警历史详情页面查看图片" />
+        </activity>
+        
+        
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.myzone.MyZoneActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="个人中心页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.myzone.PwdModifyActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="修改密码页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.mobilealarm.page.activity.myzone.AboutUsActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="关于我们页面" />
+        </activity>
+        <!-- 高德地图 -->
+        <service android:name="com.amap.api.location.APSService" >
+        </service>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="b149e58470bda55c79859bbd19004917" >
+        </meta-data>
+    </application>
+
+</manifest>

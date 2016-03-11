@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ToggleButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tag_btn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/labelitembtn_f"
+    android:gravity="center"
+    android:minHeight="30dp"
+    android:minWidth="45dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:text="tag"
+    android:textColor="@color/loginbt_green"
+    android:textSize="16dp" >
+
+</ToggleButton>

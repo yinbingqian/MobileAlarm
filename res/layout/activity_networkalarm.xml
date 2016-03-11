@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.lnpdit.mobilealarm"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_bg" >
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@color/topbar"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/back_bt"
+            android:layout_width="18dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:background="@drawable/back"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/register_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="网络报警"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <com.lnpdit.mobilealarm.utils.scrollview.CustomScrollView
+        android:id="@+id/all_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_layout"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="标签选择："
+                android:textColor="@color/setting_text_color"
+                android:textSize="16dp" />
+
+            <com.lnpdit.mobilealarm.utils.tag.TagCloudLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:lineSpacing="10dp"
+                app:tagSpacing="15dp" >
+            </com.lnpdit.mobilealarm.utils.tag.TagCloudLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#E8EAED" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="位置信息："
+                android:textColor="@color/setting_text_color"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/location_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/location_background"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:textSize="16dp" />
+
+            <com.amap.api.maps2d.MapView
+                android:id="@+id/map"
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/location_layout"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="#fbfdff" >
+
+                <TextView
+                    android:id="@+id/location_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:hint="点击定位当前地址"
+                    android:padding="5dp"
+                    android:textColor="#323240"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/iv_location"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_toLeftOf="@+id/location_text"
+                    android:src="@drawable/icon_account" />
+            </RelativeLayout>
+
+            <RadioGroup
+                android:id="@+id/tab_rg"
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="#F0F0F0"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/video_rb"
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/alarm_video"
+                    android:drawablePadding="8dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="视频"
+                    android:textColor="#464646"
+                    android:textSize="16dp" />
+                
+                
+                <RadioButton
+                    android:id="@+id/sound_rb"
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/alarm_sound"
+                    android:drawablePadding="8dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="音频"
+                    android:textColor="#464646"
+                    android:textSize="16dp" />
+                
+
+                <RadioButton
+                    android:id="@+id/pic_rb"
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/alarm_pic"
+                    android:drawablePadding="8dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="图片"
+                    android:textColor="#464646"
+                    android:textSize="16dp" />
+                <RadioButton
+                    android:id="@+id/text_rb"
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/alarm_text"
+                    android:drawablePadding="8dp"
+                    android:drawableStart="@drawable/alarm_text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="文本"
+                    android:textColor="#464646"
+                    android:textSize="16dp" />
+
+
+            </RadioGroup>
+<View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#D7D7D7"
+        android:alpha="0.6" />
+            <RelativeLayout
+                android:id="@+id/text_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="300dp"
+                android:background="#F0F0F0"
+                android:visibility="gone" >
+
+                <EditText
+                    android:id="@+id/text_et"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="10dp"
+                    android:background="@color/white"
+                    android:gravity="top|left"
+                    android:padding="5dp"
+                    android:text="" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/sound_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="300dp"
+                android:background="#F0F0F0" >
+
+
+                <LinearLayout
+                    android:id="@+id/voice_display_voice_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <RelativeLayout
+                        android:id="@+id/voice_display_voice_layouts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+                <View 
+                        android:id="@+id/voice_display_voice_length"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/gain"/>
+                        <ImageView
+                            android:id="@+id/voice_display_voice_play"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="8dp" />
+
+                       
+                    </RelativeLayout>
+                   <TextView
+                            android:id="@+id/voice_display_voice_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="7″"
+                            android:textColor="#999999"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_toRightOf="@+id/voice_display_voice_layouts"
+                            android:textSize="18dp" />
+                    <TextView
+                        android:id="@+id/voice_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_toRightOf="@+id/voice_display_voice_time"
+                        android:text="删除"
+                        android:textColor="@color/red"
+                        android:textSize="18dp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/voice_record_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/voice_display_voice_layout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="按住录制音频"
+                    android:textColor="#464646"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/pic_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="300dp"
+                android:background="#F0F0F0"
+                android:visibility="gone" >
+
+                <GridView
+                    android:id="@+id/noScrollgridview"
+                    android:layout_width="290dp"
+                    android:layout_height="350dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="30dp"
+                    android:horizontalSpacing="3dp"
+                    android:numColumns="3"
+                    android:scrollbars="none"
+                    android:verticalSpacing="5dp" >
+                </GridView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/video_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="300dp"
+                android:background="#F0F0F0"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:id="@+id/video_display_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                        android:layout_marginLeft="30dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <ImageView
+                        android:id="@+id/videodisplay_img"
+                        android:layout_width="160dp"
+                        android:layout_height="120dp" 
+                        android:background="@drawable/video_display_bg"/>
+                 
+                    <TextView
+                        android:id="@+id/video_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="60dp"
+                        android:text="删除"
+                        android:textColor="@color/red"
+                        android:textSize="18dp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/video_bt"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/video_display_layout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="录制视频"
+                    android:textColor="#464646" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/send_bt"
+                android:layout_width="280dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_login_f"
+                android:text="提交"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="60dp" />
+        </LinearLayout>
+    </com.lnpdit.mobilealarm.utils.scrollview.CustomScrollView>
+
+    <RelativeLayout
+        android:id="@+id/voice_record_layout"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:background="#80000000"
+        android:clickable="true" 
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/voice_ugc_icon_recording" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/voice_ugc_icon_recordingring"
+                android:gravity="bottom" >
+
+                <ImageView
+                    android:id="@+id/voice_recording_volume"
+                    android:layout_width="30dip"
+                    android:layout_height="0dip"
+                    android:background="@drawable/voice_ugc_icon_recordingvolume" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/voice_ugc_icon_recordingring" />
+
+            <RelativeLayout
+                android:id="@+id/voice_recordinglight_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <ImageView
+                    android:id="@+id/voice_recordinglight_1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/voice_ugc_icon_recordinglight"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/voice_recordinglight_2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/voice_ugc_icon_recordinglight"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/voice_recordinglight_3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/voice_ugc_icon_recordinglight"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/voice_record_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="0&apos;&apos;"
+                android:textColor="#999999" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:text="60″"
+                android:textColor="#999999" />
+
+            <ProgressBar
+                android:id="@+id/voice_record_progressbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="6dip"
+                android:layout_below="@+id/voice_record_time"
+                android:max="60"
+                android:progress="0"
+                android:progressDrawable="@drawable/globle_player_progress_bar_bg" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
